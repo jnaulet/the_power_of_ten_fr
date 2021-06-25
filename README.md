@@ -1,4 +1,4 @@
-#La puissance de 10 - Des Règles pour Développer du Code Critique Sûr
+# La puissance de 10 - Des Règles pour Développer du Code Critique Sûr
 
 *Gerard J. Holzmann, traduction par J.Naulet
 NASA/JPL Laboratory for Reliable Software
@@ -9,7 +9,7 @@ La plupart des projets sérieux de développement logiciel utilisent des lignes 
 
 Le bénéfice des lignes directrices existantes est par conséquent souvent mineur, même pour les applications critiques. Un ensemble vérifiable de règles de codage bien choisies peut, néanmoins, rendre les éléments logiciels plus analysables en profondeur, pour des propriétés qui vont au delà de la conformité avec ces mêmes règles. Pour être fficace, cependant, cet ensemble de règles doit être concis, et doit être assez clair pour pouvoir être compris & retenu. Les règles devront être suffisamment précises pour pouvoir être vérifiée mécaniquement. Pour mettre une limite haute quant au nombre de règles pour des lignes directrices efficaces, j'arguerais que nous pouvons obtenir un bénéfice significatif en réduisant le nombre à pas plus de 10. Un ensemble aussi réduit, bien sûr, ne peut tout englober, mais il peut nous donner un ancrage pour atteindre des effets mesurables sur la fiabilitié & la vérifiabilite (?) du logiciel. Pour permettre une vérification forte, les règles sont quelque peu strictes - certains diraient même Draconniennes. Le compromis, ceci dit, doit être clair. Quand c'est vraiment important, en particulier lors du développement de code de sécurité critique, il peut être utile d'aller plus loin & de fixer des limites plus strictes que ce qui est simplement souhaitable. En échange, nous devrions être capables de démontrer de façon plus convaincante que le logiciel critique fonctionne comme prévu.
 
-##Dix Règles pour un Code Critique Sûr
+## Dix Règles pour un Code Critique Sûr
 Le choix du langage pour un code critique sécurisé est en soi une considération clé, mais nous n'en débattrons pas beaucoup ici. Dans de nombreuses organisations, JPL inclus, le code critique est écrit en C. De par son long historique, il existe un grande bibliothèque d'outils pour ce langage, incluant de puissants analyseurs de code source, des extracteurs de modèles logiques, des outils de mesure, debogueurs, outils de tests, & un vaste choix de compilateurs stables & au point. Pour cette raison, le C est aussi le sujet principal de le plupart des lignes directrices  qui ont été développées. Pour des raisons raisonnablement pragmatiques, donc, nos règles de codage s'appliquent au C & tentent d'optimiser notre capacité à vérifier plus en profondeur la fiabilité des applications critiques écrites en C.
 
 Les règles suivantes peuvent fournir un bénéfice, en particulier si leur faible nombre signifie que les developpeurs vont reéllement les appliquer. Chause règle s'accompagne d'un rapide résumé qui explique son inclusion.
