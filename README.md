@@ -1,7 +1,9 @@
 # La puissance de 10 - Des Règles pour Développer du Code Critique Sûr
 
 *Gerard J. Holzmann, traduction par J.Naulet
+
 NASA/JPL Laboratory for Reliable Software
+
 PAsadena, CA 91109*
 
 La plupart des projets sérieux de développement logiciel utilisent des lignes directrices. Celles-ci ont pour but de définir quelles sont les règles de base pour le logiciel à écrire : comment il doit être structuré & quelles caractéristiques du langage doivent ou ne doivent pas être utilisées. Etonnament, il y a peu de consensus sur ce qu'est un bon standard de codage. Parmi le grand nombre qui ont été écrits, on discerne peu de motifs récurrents, à l'exception du fait que chaque docuement tend à être plus long que le précedent. Le résultat étant que la plupart des documents existants contiennent bien plus d'une centaine de règles, à la justification parfois discutable. Certaines règles, notamment celles qui tentent de définir l'usage des espaces dans les programmes, peuvent avoir été introduites par simple préférence personnelle; d'autres ont pour but d'éviter certains types d'erreurs improbables & très spécifiques, fruit d'efforts précédents au sein d'une même organisation. Sans surprise, les lignes directrices existantes tendent à n'avoir que peu d'effet sur ce que font les developpeurs quand ils écrivent réellement le code. L'aspect le plus élimnatoire de beaucoup de ces lignes directrices est qu'elle autorisent rarement une vérification complète & automatique de la conformité. La vérification par des outils tiers est importante, étant donné qu'il est souvent impossible de faire une revue de code manuelle des milliers de lignes de code présentes dans les plus grosses applications.
