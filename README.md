@@ -34,3 +34,6 @@ Une fois d'appliquer cette règle est d'ajouter explicitement une limite haute �
 
 ***Justification***: Chaque fonction doit être une unité logique dans le code qui est compréhensible & vérifiable en tant qu'unité. Il est beaucoup plus difficile de comprendre une unité logique qui s'étend sur plusieurs écrans sur un affichage d'ordinateur ou sur de multiples pages une fois imprimée. Les fonctions excessivement longues sont souvent un marqueur d'un code très mal structuré.
 
+5. ***Règle***: La *densité d'assertions* du code doit être en moyenne d'au moins 2 assertions par fonction. Les assertions sont utilisées pour se protéger de conditions anormales qui ne devraient jamais se produire lors d'exécutions en conditions réelles. Les assertions doivent toujours être sans aucun effet de bord & doivent être définies en tant que tests Booléens. Quand une asseertion échoue, une action de sauvetage doit être entreprise, ex, en retournant une erreur à l'appelant de la fonction qui exécute l'assertion échouée. Toute assertion pour laquelle un analyseur statique peut prouver qu'elle ne peut jamais échouer ou jamais réussir viuole cette règle. (Il n'est pas possible de satisfaire cette exigence en ajoutant d'inutiles appels à *"assert(true)"*.)
+
+***Justification***: 
