@@ -53,4 +53,9 @@ Dans cette définition, __FILE__ & __LINE__ sont prédéfinies par le préproces
 
 6. ***Règle***: Les objets & variables doivent être déclarés au niveau de portée le plus faible.
 
-***Justification***:
+***Justification***: Cette règle applique le principe basique de protection des données. Clariement si un objet n'est pas à portée, sa valeur ne peut être référencée ou corrompue. De la même façon, si une valeur erronnée d'une objet doit être diagnostiquée, moins il y a de déclarations où la valeur a pu être assignée; plus il sera facile de diagnotisquer le problème. Cette règle décourage la réutilisation de variables dans des buts différents & incompatibles, qui peut compliquer la détection d'erreur.
+
+
+7. ***Règle***: La valeur de retour des fonctions non-void doit être vérifiée par chaque fonction appelante, & la validité des paramètres doit être vérifiée à l'intérieur de chaque fonction.
+
+***Justification***: 
