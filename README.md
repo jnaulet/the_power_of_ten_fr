@@ -36,4 +36,21 @@ Une fois d'appliquer cette règle est d'ajouter explicitement une limite haute �
 
 5. ***Règle***: La *densité d'assertions* du code doit être en moyenne d'au moins 2 assertions par fonction. Les assertions sont utilisées pour se protéger de conditions anormales qui ne devraient jamais se produire lors d'exécutions en conditions réelles. Les assertions doivent toujours être sans aucun effet de bord & doivent être définies en tant que tests Booléens. Quand une asseertion échoue, une action de sauvetage doit être entreprise, ex, en retournant une erreur à l'appelant de la fonction qui exécute l'assertion échouée. Toute assertion pour laquelle un analyseur statique peut prouver qu'elle ne peut jamais échouer ou jamais réussir viuole cette règle. (Il n'est pas possible de satisfaire cette exigence en ajoutant d'inutiles appels à *"assert(true)"*.)
 
-***Justification***: 
+***Justification***: Les statistiques pour les efforts de codage industriel indiquent que les tests unitaires trouvent souvent au moins une erreur pour 10 à 100 lignes de code écrites. Les chances d'intercepter ces erreurs augmente avec la densité des assertions. L'utilisation des assertions est aussi souvent recommandée en tant qu'élément d'une stratégie de codage fortement défensive. Les assertions peuvent être tuilisées pour vérifier pré- & post- conditions de fonctions, valeurs de paramètres, valeurs de retour des fonctions, & constantes de boucles. Comme les assertions sont sans effet de bord, elles peuvent être désactivées sélectivement pour les tests de performances critiques.
+Un usage typique d'assertion serait le suivant:
+
+    if (!c_assert(p >= 0) == true) {
+      return ERROR;
+    }
+
+avec l'assertion décrite ainsi :
+
+    #define c_assert(e) ((e) ? (true) : \
+     tst_debugging(”%s,%d: assertion ’%s’ failed\n”, \
+     __FILE__, __LINE__, #e), false)
+
+Dans cette définition, __FILE__ & __LINE__ sont prédéfinies par le préprocesseur de macros & correspondent au nom du fichier & le numéro de ligne de l'assertion échouée. La syntax #e transforme la condiution d'assertion e en chaîne de caractères qui est affichée en tant qu'élement du message d'erreur. Dans un code destiné à un processeur embarqué if n'y a bien sûr pas lieu d'afficher le message d'erreur lui-même - Dans ce cas, l'appel à tst_debugging est trasnformé en no-op, & l'assertion se tranforme en pur test Booléen qui active la gestion d'erreur à partir du comportement anormal.
+
+6. ***Règle***: Les objets & variables doivent être déclarés au niveau de portée le plus faible.
+
+***Justification***:
